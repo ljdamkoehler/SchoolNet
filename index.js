@@ -4,6 +4,8 @@
     const express = require('express');
     const path = require('path');
     const mongoose = require('mongoose');
+    const ejsMate = require('ejs-mate');
+    const methodOverride = require('method-override');
 
     //use express 
     const app = express();
@@ -28,9 +30,6 @@
     // Use Method Override 
     app.use(methodOverride('_method'));
 // End Project setup
-
-
-
 
 
 //Home page route
