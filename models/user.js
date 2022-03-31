@@ -21,7 +21,7 @@ const UserSchema = new Schema({
     },
     userType: {
         type: String,
-        enum: ['Parent', 'Student']
+        enum: ['Parent', 'Student', 'Other']
     },
     email: {
         type: String,
@@ -33,12 +33,14 @@ const UserSchema = new Schema({
         trim: true
     },
     canBeCalled: {
-        type: Boolean,
-        required: true
+        type: String,
+        required: true,
+        default: false 
     },
     canBeTexted: {
-        type: Boolean,
-        required: true 
+        type: String,
+        required: true,
+        default: false 
     },
     preferredName: {
         type: String
@@ -46,3 +48,6 @@ const UserSchema = new Schema({
 })
 
 //_id property will be added by mongoose by default 
+
+// Export and instance of the User Model 
+module.exports = mongoose.model('User', UserSchema);

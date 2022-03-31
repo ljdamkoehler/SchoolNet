@@ -7,6 +7,10 @@
     const ejsMate = require('ejs-mate');
     const methodOverride = require('method-override');
 
+    // Require mongoose models 
+    const User = require('./models/user');
+    const Appointment = require('./models/appointment');
+
     //use express 
     const app = express();
 
@@ -34,25 +38,42 @@
 
 //Home page route
 app.get('/', (req, res) => {
-
+    res.render('public_site/home');
 });
 
 //****User Routes****
 
-//signup route
+//signup get route
 
-app.get('/signup', () => {
-    
+app.get('/signup', (req, res) => {
+    res.render('users/signup');
 });
 
-//signin route
-app.get('/signin', () => {
-    
+// signup post route 
+app.post('/signup', async (req, res) => {
+    const user = new User(req.body.user);
+    await user.save();
+    res.send('New user made!');
+})
+
+//signin get route
+app.get('/signin', (req, res) => {
+    res.render('users/signin');
 });
+
+//signin post route
+app.post('/signin', (req, res) => {
+    
+})
 
 //signout route
-app.get('/signout', () => {
+app.get('/signout', (req, res) => {
     
 });
 
+
+//Have express listen on local port 3000
+app.listen(3000, () => {
+    console.log('Conncetion is open on port 3000');
+})
 
