@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <title>Schedule Appointment</title>
+</head>
+<body>
+    <div class="container-lg mt-3">
+        <form class="row g-3" method="POST">
+            <div class="col-md-6">
+                <label for="firstName" class="form-label">First Name</label>
+                <input type="text" class="form-control" id="firstName" name="user[firstName]" placeholder="First">
+            </div>
+            <div class="col-md-6">
+                <label for="lastName" class="form-label">Last Name</label>
+                <input type="text" class="form-control" id="lastName" name="user[lastName]" placeholder="Last">
+            </div>
+            <div class="col-6">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" class="form-control" id="username" placeholder="Username" name="user[username]">
+            </div>
+            <div class="col-md-6">
+                <label for="userType" class="select-label form-label">Select User Type</label> <br>
+                <select id="userType" class="form-select-md" aria-label="Select-user-type" name="user[userType]">
+                    <option selected>Select User Type</option>
+                    <option value="Parent">Parent</option>
+                    <option value="Student">Student</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+            <div class="col-md-6">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" placeholder="Password" name="user[password]">
+            </div>
+            <div class="col-md-6">
+                <label for="passwordConfirmation" class="form-label">Password Confirmation</label>
+                <input type="password" class="form-control" id="passwordConfirmation" placeholder="Password Confirmation" name="passwordConfirmation">
+            </div>
+            <div class="col-md-6">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" placeholder="Email Address" name="user[email]">
+            </div>
+            <div class="col-md-6">
+                <label for="phone" class="form-label">Phone Number</label>
+                <input type="text" class="form-control" id="phone" placeholder="Phone Number (optional)" name="user[phone]">
+            </div>
+            <div class="col-md-12">
+                <label for="preferredName" class="form-label">Preferred Name</label>
+                <input type="text" class="form-control" id="preferredName" placeholder="Preferred Name" name="user[preferredName]">
+            </div>
+            <div class="col-md-12 my-2">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="True" id="canBeCalled" name="user[canBeCalled]">
+                    <label class="form-check-label" for="canBeCalled">
+                      Can be contected via phone call?
+                    </label>
+                </div>
+            <div class="col-md-12 my-2">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="True" id="canBeTexted" name="user[canBeTexted]">
+                    <label class="form-check-label" for="canBeTexted">
+                      Can be contected via text message?
+                    </label>
+                </div>
+            </div>
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary">Sign up!</button>
+            </div>
+            
+        </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
+</html>

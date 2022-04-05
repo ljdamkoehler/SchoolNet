@@ -6,6 +6,11 @@
     const mongoose = require('mongoose');
     const ejsMate = require('ejs-mate');
     const methodOverride = require('method-override');
+    const cookieSession = require('cookie-session');
+
+    //Routers 
+    const appointmentRouter = require('./routes/appointments/appointments');
+    const authRouter = require('./routes/auth/auth');
 
     // Require mongoose models 
     const User = require('./models/user');
@@ -33,6 +38,17 @@
     app.use(express.urlencoded({ extended: true }))
     // Use Method Override 
     app.use(methodOverride('_method'));
+
+    // Use cookie sessions
+
+    app.use(cookieSession({
+        keys: ['kjhsaoiyks68s8a']
+    }));
+
+    //Use Routers 
+    app.use(appointmentRouter);
+    app.use(authRouter);
+
 // End Project setup
 
 
@@ -43,33 +59,7 @@ app.get('/', (req, res) => {
 
 //****User Routes****
 
-//signup get route
 
-app.get('/signup', (req, res) => {
-    res.render('users/signup');
-});
-
-// signup post route 
-app.post('/signup', async (req, res) => {
-    const user = new User(req.body.user);
-    await user.save();
-    res.send('New user made!');
-})
-
-//signin get route
-app.get('/signin', (req, res) => {
-    res.render('users/signin');
-});
-
-//signin post route
-app.post('/signin', (req, res) => {
-    
-})
-
-//signout route
-app.get('/signout', (req, res) => {
-    
-});
 
 
 //Have express listen on local port 3000
