@@ -8,7 +8,11 @@ const User = require('../../models/user');
 
 //Signup GET route
 router.get('/signup', (req, res) => {
-    res.render('users/signup');
+    if (req.session.userId) {
+        res.send('You must signout to make a new account!');
+    } else {
+        res.render('users/signup');
+    }
 });
 
 //Signup POST route 

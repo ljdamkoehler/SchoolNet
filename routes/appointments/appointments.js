@@ -3,9 +3,21 @@ const express = require('express');
 
 const router = express.Router();
 
-//Appointment Form Page GET Route
-router.get('/appointment', (req, res) => {
+// Require needed mongoose models 
 
+const User = require('../../models/user');
+
+const Appointment = require('../../models/appointment');
+
+//Appointment Form Page GET Route
+router.get('/appointment', async (req, res) => {
+    if (!req.session.userId) {
+        res.send('You must be signed in to make an appointment!')
+    } else {
+        const id = req.session.userId;
+        const user = await User.findById(id);
+        res.render('users/appointments/makeAppointment', { user });
+    }
 });
 
 //Appointment Form Page POST Route
